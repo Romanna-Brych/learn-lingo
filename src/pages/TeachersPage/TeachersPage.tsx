@@ -1,42 +1,52 @@
-import { useEffect, useState } from "react";
-import { getTeachers } from "../../services/teachers";
-import type { Teacher } from "../../types/teacher";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import TeacherCard from "../../components/TeacherCard/TeacherCard";
+import { getTeachersPage } from "../../services/teachers";
+import css from "./TeachersPage.module.css";
 
 const TeachersPage = () => {
-  const [teachers, setTeachers] = useState<Teacher[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const {
+    data,
+    isPending,
+    isError,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery({
+    queryKey: ["teachers"],
+    queryFn: ({ pageParam }) => getTeachersPage(pageParam),
+    initialPageParam: null as string | null,
+    getNextPageParam: (lastPage) => lastPage.nextCursor,
+  });
 
-  useEffect(() => {
-    const fetchTeachers = async () => {
-      try {
-        const data = await getTeachers();
-        setTeachers(data);
-      } catch {
-        setError("Failed to load teachers");
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  const teachers = data?.pages.flatMap((page) => page.teachers) ?? [];
 
-    fetchTeachers();
-  }, []);
-
-  if (isLoading) return <p>Loading teachers...</p>;
-  if (error) return <p>{error}</p>;
+  if (isPending) return <p>Loading teachers...</p>;
+  if (isError) return <p>Failed to load teachers</p>;
 
   return (
-    <section>
-      <h1>Teachers</h1>
+    <section className={css.section}>
+      <div>
+        <ul className={css.list}>
+          {teachers.map((teacher) => (
+            <li key={teacher.id} className={css.item}>
+              <TeacherCard teacher={teacher} />
+            </li>
+          ))}
+        </ul>
 
-      <ul>
-        {teachers.map((teacher) => (
-          <li key={teacher.id}>
-            <TeacherCard teacher={teacher} />
-          </li>
-        ))}
-      </ul>
+        {hasNextPage && (
+          <div className={css.loadMoreWrapper}>
+            <button
+              type="button"
+              onClick={() => fetchNextPage()}
+              disabled={isFetchingNextPage}
+              className={css.loadMoreBtn}
+            >
+              {isFetchingNextPage ? "Loading..." : "Load more"}
+            </button>
+          </div>
+        )}
+      </div>
     </section>
   );
 };

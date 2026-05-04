@@ -1,0 +1,35 @@
+.section {
+  padding: 40px 0;
+}
+
+.list {
+  display: grid;
+  gap: 32px;
+  margin-bottom: 64px;
+}
+
+.item {
+  list-style: none;
+}
+
+.loadMoreWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.loadMoreBtn {
+  padding: 16px 48px;
+  border-radius: 12px;
+  background-color: var(--color-primary);
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+}
+
+.loadMoreBtn:hover {
+  background-color: #eabf3c;
+}
+
+.loadMoreBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
