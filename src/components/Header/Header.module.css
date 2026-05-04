@@ -1,25 +1,38 @@
 .header {
+  max-width: 1184px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1184px;
-  margin: 0 auto;
-  padding: 20px 64px;
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 500;
   font-size: 20px;
   line-height: 120%;
 }
 
+.logoIcon {
+  width: 28px;
+  height: 28px;
+}
+
 .nav {
   display: flex;
+  align-items: center;
   gap: 28px;
 }
 
 .link {
   font-size: 16px;
+  line-height: 1.25;
 }
 
 .auth {
@@ -35,9 +48,31 @@
   line-height: 125%;
 }
 
+.loginBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.loginIcon {
+  width: 20px;
+  height: 20px;
+  color: #f4c550;
+  fill: transparent;
+}
+
 .registerBtn {
-  border-radius: 12px;
   padding: 14px 39px;
-  background-color: #121417;
-  color: #fff;
+  border-radius: 12px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.userEmail {
+  max-width: 180px;
+  overflow: hidden;
+  font-size: 14px;
+  color: var(--color-gray);
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
