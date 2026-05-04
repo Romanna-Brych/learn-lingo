@@ -1,0 +1,32 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgba(18, 20, 23, 0.6);
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 566px;
+  padding: 64px;
+  border-radius: 30px;
+  background-color: var(--color-white);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+}
+
+.closeIcon {
+  width: 32px;
+  height: 32px;
+  color: var(--color-black);
+}
