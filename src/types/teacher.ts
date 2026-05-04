@@ -9,6 +9,7 @@ export type Teacher = {
     reviewer_name: string;
     reviewer_rating: number;
     comment: string;
+    reviewer_avatar_url?: string;
   }[];
   price_per_hour: number;
   lessons_done: number;

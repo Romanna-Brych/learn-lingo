@@ -1,0 +1,223 @@
+.card {
+  display: flex;
+  gap: 48px;
+  padding: 24px;
+  border-radius: 24px;
+  background-color: var(--color-white);
+}
+
+.avatarWrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  padding: 12px;
+  border: 3px solid #fbe9ba;
+  border-radius: 50%;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.onlineDot {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--color-white);
+  border-radius: 50%;
+  background-color: #38cd3e;
+}
+
+.content {
+  width: 100%;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-gray);
+}
+
+.name {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.metaItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.metaItem:not(:last-of-type)::after {
+  content: "";
+  position: absolute;
+  right: -16px;
+  width: 1px;
+  height: 16px;
+  background-color: rgba(18, 20, 23, 0.2);
+}
+
+.bookIcon {
+  width: 16px;
+  height: 16px;
+  fill: none;
+}
+
+.star {
+  color: #ffc531;
+  fill: #ffc531;
+  width: 15px;
+  height: 15px;
+}
+
+.price {
+  color: #38cd3e;
+}
+
+.heartBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 48px;
+}
+
+.heartIcon {
+  width: 26px;
+  height: 26px;
+  fill: none;
+}
+
+.info {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.infoRow {
+  display: flex;
+  gap: 2px;
+}
+
+.infoTitle {
+  color: var(--color-gray);
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+.readMoreBtn {
+  margin-bottom: 32px;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: underline;
+}
+
+.expanded {
+  margin-bottom: 32px;
+}
+
+.experience {
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+.reviews {
+  display: grid;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.review {
+  display: grid;
+  gap: 16px;
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviewAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reviewName {
+  margin-bottom: 2px;
+  color: var(--color-gray);
+  font-weight: 500;
+}
+
+.reviewRating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.reviewText {
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.levels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.level {
+  padding: 8px 12px;
+  border: 1px solid rgba(18, 20, 23, 0.2);
+  border-radius: 35px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.activeLevel {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+}
+
+.bookBtn {
+  margin-top: 32px;
+  min-width: 232px;
+  padding: 16px 48px;
+  border-radius: 12px;
+  background-color: var(--color-primary);
+  font-weight: 700;
+  font-size: 18px;
+}

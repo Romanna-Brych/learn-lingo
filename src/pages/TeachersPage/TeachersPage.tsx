@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getTeachers } from "../../services/teachers";
 import type { Teacher } from "../../types/teacher";
+import TeacherCard from "../../components/TeacherCard/TeacherCard";
 
 const TeachersPage = () => {
   const [teachers, setTeachers] = useState<Teacher[]>([]);
@@ -32,7 +33,7 @@ const TeachersPage = () => {
       <ul>
         {teachers.map((teacher) => (
           <li key={teacher.id}>
-            {teacher.name} {teacher.surname} — ${teacher.price_per_hour}
+            <TeacherCard teacher={teacher} />
           </li>
         ))}
       </ul>
