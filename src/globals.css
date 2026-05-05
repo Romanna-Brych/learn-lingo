@@ -16,7 +16,6 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: var(--color-bg);
   color: var(--color-black);
 }
 
@@ -57,4 +56,13 @@ a {
   max-width: 1312px;
   margin: 0 auto;
   padding: 0 64px;
+}
+
+.app {
+  background-color: var(--color-bg);
+  min-height: 100vh;
+}
+
+.homeBg {
+  background-color: var(--color-white);
 }

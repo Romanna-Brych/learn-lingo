@@ -1,0 +1,137 @@
+.hero {
+  padding: 20px 0;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 568px;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.content {
+  min-height: 530px;
+  padding: 98px 64px;
+  border-radius: 30px;
+  background-color: var(--color-bg);
+}
+
+.title {
+  max-width: 548px;
+  margin-bottom: 32px;
+  font-size: 48px;
+  line-height: 1.16;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.highlight {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 8px;
+  background-color: #fbe9ba;
+  line-height: 80%;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.text {
+  max-width: 471px;
+  margin-bottom: 64px;
+  line-height: 1.37;
+  color: var(--color-black);
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 267px;
+  height: 60px;
+  border-radius: 12px;
+  background-color: var(--color-primary);
+  font-weight: 700;
+}
+
+.imageWrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 530px;
+  overflow: hidden;
+  border-radius: 30px;
+  background-color: #fbe9ba;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.statsBox {
+  position: relative;
+  padding: 40px 122px;
+  background-color: transparent;
+}
+
+.statsBox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    repeating-linear-gradient(
+        90deg,
+        var(--color-primary) 0 14px,
+        transparent 14px 26px
+      )
+      top / calc(100% - 28px) 1.5px no-repeat,
+    repeating-linear-gradient(
+        90deg,
+        var(--color-primary) 0 14px,
+        transparent 14px 26px
+      )
+      bottom / calc(100% - 28px) 1.5px no-repeat,
+    repeating-linear-gradient(
+        180deg,
+        var(--color-primary) 0 14px,
+        transparent 14px 26px
+      )
+      left / 1.5px calc(100% - 28px) no-repeat,
+    repeating-linear-gradient(
+        180deg,
+        var(--color-primary) 0 14px,
+        transparent 14px 26px
+      )
+      right / 1.5px calc(100% - 28px) no-repeat;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 100px;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.statNumber {
+  flex-shrink: 0;
+  font-size: 28px;
+  line-height: 1.14;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  max-width: 96px;
+  color: rgba(18, 20, 23, 0.7);
+  font-size: 14px;
+  line-height: 1.28;
+  flex-shrink: 0;
+}
