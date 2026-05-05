@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import type { Teacher } from "../../types/teacher";
 import css from "./TrialLessonForm.module.css";
+import toast from "react-hot-toast";
 
 type TrialLessonFormData = {
   reason: string;
@@ -44,11 +45,7 @@ const TrialLessonForm = ({ teacher, onClose }: Props) => {
   });
 
   const onSubmit = async (data: TrialLessonFormData) => {
-    console.log("Trial lesson booking:", {
-      teacherId: teacher.id,
-      teacherName: `${teacher.name} ${teacher.surname}`,
-      ...data,
-    });
+    toast.success("Trial lesson booked!");
 
     onClose();
   };

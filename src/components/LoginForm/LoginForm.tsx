@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { useAuth } from "../../context/AuthContext";
 import css from "./LoginForm.module.css";
+import toast from "react-hot-toast";
 
 type LoginFormData = {
   email: string;
@@ -31,7 +32,6 @@ const LoginForm = ({ onClose }: Props) => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    setError,
   } = useForm<LoginFormData>({
     resolver: yupResolver(schema),
   });
@@ -40,10 +40,9 @@ const LoginForm = ({ onClose }: Props) => {
     try {
       await login(data.email, data.password);
       onClose();
+      toast.success("Logged in successfully");
     } catch {
-      setError("root", {
-        message: "Invalid email or password",
-      });
+      toast.error("Invalid email or password");
     }
   };
 

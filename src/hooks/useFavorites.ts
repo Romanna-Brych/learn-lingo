@@ -5,6 +5,7 @@ import {
   getUserFavorites,
   removeFavorite,
 } from "../services/favorites";
+import toast from "react-hot-toast";
 
 export const useFavorites = () => {
   const { user, isLoggedIn } = useAuth();
@@ -44,8 +45,10 @@ export const useFavorites = () => {
 
     if (isFavorite(teacherId)) {
       removeMutation.mutate(teacherId);
+      toast.success("Removed from favorites");
     } else {
       addMutation.mutate(teacherId);
+      toast.success("Added to favorites");
     }
   };
 

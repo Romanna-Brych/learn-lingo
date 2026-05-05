@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { useAuth } from "../../context/AuthContext";
 import css from "./RegisterForm.module.css";
+import toast from "react-hot-toast";
 
 type RegisterFormData = {
   name: string;
@@ -42,10 +43,9 @@ const RegisterForm = ({ onClose }: Props) => {
     try {
       await registerUser(data.email, data.password);
       onClose();
+      toast.success("Registration successful");
     } catch {
-      setError("root", {
-        message: "Registration failed. Please try again.",
-      });
+      toast.error("Registration failed. Please try again.");
     }
   };
 
