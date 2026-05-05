@@ -113,6 +113,11 @@
   fill: none;
 }
 
+.activeHeartBtn .heartIcon {
+  color: var(--color-primary);
+  fill: var(--color-primary);
+}
+
 .info {
   display: grid;
   gap: 8px;

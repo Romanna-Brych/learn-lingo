@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Teacher } from "../../types/teacher";
 import css from "./TeacherCard.module.css";
+import { useFavorites } from "../../hooks/useFavorites";
 
 type Props = {
   teacher: Teacher;
@@ -12,6 +13,9 @@ const getLevelClassName = (index: number) => {
 
 const TeacherCard = ({ teacher }: Props) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { isFavorite, toggleFavorite } = useFavorites();
+
+  const isTeacherFavorite = isFavorite(teacher.id);
 
   return (
     <article className={css.card}>
@@ -59,8 +63,11 @@ const TeacherCard = ({ teacher }: Props) => {
 
             <button
               type="button"
-              className={css.heartBtn}
+              className={`${css.heartBtn} ${
+                isTeacherFavorite ? css.activeHeartBtn : ""
+              }`}
               aria-label="Add to favorites"
+              onClick={() => toggleFavorite(teacher.id)}
             >
               <svg className={css.heartIcon}>
                 <use href="/sprite.svg#icon-heart" />
