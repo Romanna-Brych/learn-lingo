@@ -128,11 +128,12 @@
 
 .infoRow {
   display: flex;
-  gap: 2px;
+  gap: 3px;
 }
 
 .infoTitle {
   color: var(--color-gray);
+  flex-shrink: 0;
 }
 
 .underlined {

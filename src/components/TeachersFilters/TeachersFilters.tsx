@@ -1,3 +1,4 @@
+import FilterSelect from "../FilterSelect/FilterSelect";
 import css from "./TeachersFilters.module.css";
 
 type Props = {
@@ -8,6 +9,31 @@ type Props = {
   onReset: () => void;
 };
 
+const languageOptions = [
+  { label: "All", value: "" },
+  { label: "French", value: "French" },
+  { label: "English", value: "English" },
+  { label: "German", value: "German" },
+  { label: "Ukrainian", value: "Ukrainian" },
+  { label: "Polish", value: "Polish" },
+];
+
+const levelOptions = [
+  { label: "All", value: "" },
+  { label: "A1 Beginner", value: "A1 Beginner" },
+  { label: "A2 Elementary", value: "A2 Elementary" },
+  { label: "B1 Intermediate", value: "B1 Intermediate" },
+  { label: "B2 Upper-Intermediate", value: "B2 Upper-Intermediate" },
+];
+
+const priceOptions = [
+  { label: "All", value: "" },
+  { label: "10 $", value: "10" },
+  { label: "20 $", value: "20" },
+  { label: "30 $", value: "30" },
+  { label: "40 $", value: "40" },
+];
+
 const TeachersFilters = ({
   language,
   level,
@@ -17,51 +43,29 @@ const TeachersFilters = ({
 }: Props) => {
   return (
     <div className={css.filters}>
-      <label className={css.label}>
-        Languages
-        <select
-          className={css.select}
-          value={language}
-          onChange={(e) => onChange("language", e.target.value)}
-        >
-          <option value="">All</option>
-          <option value="French">French</option>
-          <option value="English">English</option>
-          <option value="German">German</option>
-          <option value="Ukrainian">Ukrainian</option>
-          <option value="Polish">Polish</option>
-        </select>
-      </label>
+      <FilterSelect
+        label="Languages"
+        value={language}
+        placeholder="All"
+        options={languageOptions}
+        onChange={(value) => onChange("language", value)}
+      />
 
-      <label className={css.label}>
-        Level
-        <select
-          className={css.select}
-          value={level}
-          onChange={(e) => onChange("level", e.target.value)}
-        >
-          <option value="">All</option>
-          <option value="A1 Beginner">A1 Beginner</option>
-          <option value="A2 Elementary">A2 Elementary</option>
-          <option value="B1 Intermediate">B1 Intermediate</option>
-          <option value="B2 Upper-Intermediate">B2 Upper-Intermediate</option>
-        </select>
-      </label>
+      <FilterSelect
+        label="Level of knowledge"
+        value={level}
+        placeholder="All"
+        options={levelOptions}
+        onChange={(value) => onChange("level", value)}
+      />
 
-      <label className={css.label}>
-        Price
-        <select
-          className={css.select}
-          value={price}
-          onChange={(e) => onChange("price", e.target.value)}
-        >
-          <option value="">All</option>
-          <option value="10">10 $</option>
-          <option value="20">20 $</option>
-          <option value="30">30 $</option>
-          <option value="40">40 $</option>
-        </select>
-      </label>
+      <FilterSelect
+        label="Price"
+        value={price}
+        placeholder="All"
+        options={priceOptions}
+        onChange={(value) => onChange("price", value)}
+      />
 
       <button type="button" className={css.resetBtn} onClick={onReset}>
         Reset
