@@ -1,6 +1,6 @@
 # LearnLingo 🌍
 
-![LearnLingo Preview](./preview.png)
+![LearnLingo Preview](./public/preview.png)
 
 ## 🚀 Live Demo
 
@@ -86,7 +86,7 @@ VITE_FIREBASE_PROJECT_ID=your_project_id
 VITE_FIREBASE_STORAGE_BUCKET=your_bucket
 VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 VITE_FIREBASE_APP_ID=your_app_id
+```
 
 Author
 Romanna Brych
-```
