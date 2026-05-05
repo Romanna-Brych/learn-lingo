@@ -2,6 +2,8 @@ import { useState } from "react";
 import type { Teacher } from "../../types/teacher";
 import css from "./TeacherCard.module.css";
 import { useFavorites } from "../../hooks/useFavorites";
+import Modal from "../Modal/Modal";
+import TrialLessonForm from "../TrialLessonForm/TrialLessonForm";
 
 type Props = {
   teacher: Teacher;
@@ -14,6 +16,7 @@ const getLevelClassName = (index: number) => {
 const TeacherCard = ({ teacher }: Props) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const { isFavorite, toggleFavorite } = useFavorites();
+  const [isTrialModalOpen, setIsTrialModalOpen] = useState(false);
 
   const isTeacherFavorite = isFavorite(teacher.id);
 
@@ -149,11 +152,23 @@ const TeacherCard = ({ teacher }: Props) => {
         </ul>
 
         {isExpanded && (
-          <button type="button" className={css.bookBtn}>
+          <button
+            type="button"
+            className={css.bookBtn}
+            onClick={() => setIsTrialModalOpen(true)}
+          >
             Book trial lesson
           </button>
         )}
       </div>
+      {isTrialModalOpen && (
+        <Modal onClose={() => setIsTrialModalOpen(false)}>
+          <TrialLessonForm
+            teacher={teacher}
+            onClose={() => setIsTrialModalOpen(false)}
+          />
+        </Modal>
+      )}
     </article>
   );
 };
