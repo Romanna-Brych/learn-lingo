@@ -1,0 +1,30 @@
+.filters {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.label {
+  display: grid;
+  gap: 8px;
+  color: var(--color-gray);
+  font-weight: 500;
+}
+
+.select {
+  min-width: 180px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-weight: 500;
+}
+
+.resetBtn {
+  padding: 14px 28px;
+  border-radius: 12px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-weight: 700;
+}

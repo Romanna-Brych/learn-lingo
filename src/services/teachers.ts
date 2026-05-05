@@ -85,3 +85,17 @@ export const getTeachersByIds = async (
 
   return teachers.filter((teacher): teacher is Teacher => teacher !== null);
 };
+export const getAllTeachers = async (): Promise<Teacher[]> => {
+  const snapshot = await get(ref(database, "teachers"));
+
+  if (!snapshot.exists()) {
+    return [];
+  }
+
+  const data = snapshot.val() as Record<string, TeacherFromDb>;
+
+  return Object.entries(data).map(([id, teacher]) => ({
+    id,
+    ...teacher,
+  }));
+};
