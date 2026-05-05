@@ -23,14 +23,31 @@ const Header = () => {
           </NavLink>
 
           <nav className={css.nav}>
-            <NavLink to="/" className={css.link}>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? `${css.link} ${css.active}` : css.link
+              }
+            >
               Home
             </NavLink>
-            <NavLink to="/teachers" className={css.link}>
+
+            <NavLink
+              to="/teachers"
+              className={({ isActive }) =>
+                isActive ? `${css.link} ${css.active}` : css.link
+              }
+            >
               Teachers
             </NavLink>
+
             {isLoggedIn && (
-              <NavLink to="/favorites" className={css.link}>
+              <NavLink
+                to="/favorites"
+                className={({ isActive }) =>
+                  isActive ? `${css.link} ${css.active}` : css.link
+                }
+              >
                 Favorites
               </NavLink>
             )}
