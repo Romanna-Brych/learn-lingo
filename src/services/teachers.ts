@@ -58,3 +58,30 @@ export const getTeachersPage = async (
     nextCursor,
   };
 };
+
+export const getTeacherById = async (
+  teacherId: string,
+): Promise<Teacher | null> => {
+  const snapshot = await get(ref(database, `teachers/${teacherId}`));
+
+  if (!snapshot.exists()) {
+    return null;
+  }
+
+  const teacher = snapshot.val() as TeacherFromDb;
+
+  return {
+    id: teacherId,
+    ...teacher,
+  };
+};
+
+export const getTeachersByIds = async (
+  teacherIds: string[],
+): Promise<Teacher[]> => {
+  const teachers = await Promise.all(
+    teacherIds.map((teacherId) => getTeacherById(teacherId)),
+  );
+
+  return teachers.filter((teacher): teacher is Teacher => teacher !== null);
+};
