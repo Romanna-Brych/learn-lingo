@@ -1,16 +1,92 @@
-# React + Vite
+# LearnLingo 🌍
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![LearnLingo Preview](./preview.png)
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+👉
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📌 About the Project
 
-## Expanding the ESLint configuration
+**LearnLingo** is a modern web application for finding and booking language tutors.  
+Users can browse teachers, filter them by different criteria, add favorites, and book trial lessons.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The project is built as a test assignment but follows real-world frontend architecture and best practices.
+
+---
+
+## ✨ Features
+
+- 🔐 Authentication (Register / Login with Firebase)
+- ❤️ Add / remove teachers from favorites
+- 🔎 Filtering by:
+  - Language
+  - Level
+  - Price
+- 📄 Pagination (Load more)
+- 📅 Book trial lesson (form with validation)
+- 🔔 Toast notifications
+- 🛡 Protected routes
+- 🎨 Custom UI components (dropdowns, modals)
+
+---
+
+## 🛠 Tech Stack
+
+- **React**
+- **TypeScript**
+- **React Router**
+- **TanStack Query**
+- **Firebase (Auth + Realtime DB)**
+- **React Hook Form**
+- **Yup**
+- **CSS Modules**
+- **React Hot Toast**
+
+---
+
+## 🧠 Architecture Highlights
+
+- Separation of concerns:
+  - `services/` → API & Firebase logic
+  - `hooks/` → business logic (favorites, etc.)
+  - `components/` → reusable UI
+  - `pages/` → route-level components
+- URL-based filters using `searchParams`
+- Optimized data fetching with TanStack Query
+- Reusable custom components (FilterSelect, Modal)
+
+---
+
+## 📷 Pages
+
+- **Home** – hero section with CTA and stats
+- **Teachers** – list with filters and pagination
+- **Favorites** – saved teachers (protected route)
+
+---
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/your-username/learnlingo.git
+cd learnlingo
+npm install
+npm run dev
+
+🔑 Environment Variables
+
+Create a .env file:
+VITE_FIREBASE_API_KEY=your_key
+VITE_FIREBASE_AUTH_DOMAIN=your_domain
+VITE_FIREBASE_DATABASE_URL=your_db_url
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+
+Author
+Romanna Brych
+```
