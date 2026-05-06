@@ -39,7 +39,7 @@ export const useFavorites = () => {
 
   const toggleFavorite = (teacherId: string) => {
     if (!isLoggedIn || !userId) {
-      alert("This feature is available only for authorized users.");
+      toast.error("This feature is available only for authorized users.");
       return;
     }
 

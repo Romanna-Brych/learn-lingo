@@ -1,10 +1,10 @@
-# LearnLingo 🌍
+# LearnLingo
 
 ![LearnLingo Preview](./public/preview.png)
 
 ## 🚀 Live Demo
 
-👉
+👉 https://learn-lingo-three-teal.vercel.app
 
 ---
 
@@ -12,8 +12,6 @@
 
 **LearnLingo** is a modern web application for finding and booking language tutors.  
 Users can browse teachers, filter them by different criteria, add favorites, and book trial lessons.
-
-The project is built as a test assignment but follows real-world frontend architecture and best practices.
 
 ---
 
