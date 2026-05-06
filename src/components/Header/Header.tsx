@@ -13,76 +13,74 @@ const Header = () => {
 
   return (
     <header className={css.header}>
-      <div className="container">
-        <div className={css.inner}>
-          <NavLink to="/" className={css.logo}>
-            <svg className={css.logoIcon}>
-              <use href="/sprite.svg#icon-logo" />
-            </svg>
-            LearnLingo
+      <div className={css.inner}>
+        <NavLink to="/" className={css.logo}>
+          <svg className={css.logoIcon}>
+            <use href="/sprite.svg#icon-logo" />
+          </svg>
+          LearnLingo
+        </NavLink>
+
+        <nav className={css.nav}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? `${css.link} ${css.active}` : css.link
+            }
+          >
+            Home
           </NavLink>
 
-          <nav className={css.nav}>
+          <NavLink
+            to="/teachers"
+            className={({ isActive }) =>
+              isActive ? `${css.link} ${css.active}` : css.link
+            }
+          >
+            Teachers
+          </NavLink>
+
+          {isLoggedIn && (
             <NavLink
-              to="/"
+              to="/favorites"
               className={({ isActive }) =>
                 isActive ? `${css.link} ${css.active}` : css.link
               }
             >
-              Home
+              Favorites
             </NavLink>
+          )}
+        </nav>
 
-            <NavLink
-              to="/teachers"
-              className={({ isActive }) =>
-                isActive ? `${css.link} ${css.active}` : css.link
-              }
-            >
-              Teachers
-            </NavLink>
-
-            {isLoggedIn && (
-              <NavLink
-                to="/favorites"
-                className={({ isActive }) =>
-                  isActive ? `${css.link} ${css.active}` : css.link
-                }
+        <div className={css.auth}>
+          {isLoggedIn ? (
+            <>
+              <span className={css.userEmail}>{user?.email}</span>
+              <button type="button" className={css.loginBtn} onClick={logout}>
+                Log out
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                type="button"
+                className={css.loginBtn}
+                onClick={() => setIsLoginOpen(true)}
               >
-                Favorites
-              </NavLink>
-            )}
-          </nav>
-
-          <div className={css.auth}>
-            {isLoggedIn ? (
-              <>
-                <span className={css.userEmail}>{user?.email}</span>
-                <button type="button" className={css.loginBtn} onClick={logout}>
-                  Log out
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  type="button"
-                  className={css.loginBtn}
-                  onClick={() => setIsLoginOpen(true)}
-                >
-                  <svg className={css.loginIcon}>
-                    <use href="/sprite.svg#icon-log-in" />
-                  </svg>
-                  Log in
-                </button>
-                <button
-                  type="button"
-                  className={css.registerBtn}
-                  onClick={() => setIsRegisterOpen(true)}
-                >
-                  Registration
-                </button>
-              </>
-            )}
-          </div>
+                <svg className={css.loginIcon}>
+                  <use href="/sprite.svg#icon-log-in" />
+                </svg>
+                Log in
+              </button>
+              <button
+                type="button"
+                className={css.registerBtn}
+                onClick={() => setIsRegisterOpen(true)}
+              >
+                Registration
+              </button>
+            </>
+          )}
         </div>
       </div>
       {isLoginOpen && (

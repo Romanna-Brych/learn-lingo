@@ -65,3 +65,34 @@
 .activeOption {
   color: var(--color-black);
 }
+
+@media (max-width: 1023px) {
+  .wrapper {
+    min-width: calc((100% - 16px) / 2);
+  }
+
+  .selectBtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    min-width: 100%;
+  }
+
+  .selectBtn {
+    width: 100%;
+    min-width: auto;
+    font-size: 16px;
+  }
+
+  .options {
+    max-height: 240px;
+    overflow-y: auto;
+  }
+
+  .option {
+    font-size: 16px;
+  }
+}

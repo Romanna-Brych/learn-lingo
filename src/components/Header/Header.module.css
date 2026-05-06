@@ -1,17 +1,19 @@
 .header {
   max-width: 1184px;
   margin: 0 auto;
-  padding: 30px 0;
+  padding: 30px 64px;
 }
 
 .inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 }
 
 .logo {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 8px;
   font-weight: 500;
@@ -31,11 +33,6 @@
 }
 
 .link {
-  font-size: 16px;
-  line-height: 1.25;
-}
-
-.link {
   position: relative;
   font-size: 16px;
   line-height: 1.25;
@@ -43,7 +40,7 @@
 }
 
 .link:hover {
-  font-weight: 500;
+  color: var(--color-primary);
 }
 
 .link::after {
@@ -57,16 +54,14 @@
   transition: width 0.2s ease;
 }
 
-.link:hover::after {
-  width: 100%;
-}
-
+.link:hover::after,
 .active::after {
   width: 100%;
 }
 
 .auth {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 16px;
 }
@@ -87,7 +82,7 @@
 .loginIcon {
   width: 20px;
   height: 20px;
-  color: #f4c550;
+  color: var(--color-primary);
   fill: transparent;
 }
 
@@ -105,4 +100,97 @@
   color: var(--color-gray);
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .inner {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 20px;
+  }
+
+  .logo {
+    grid-column: 1 / 2;
+  }
+
+  /* .auth {
+    grid-column: 2 / 3;
+    justify-self: end;
+    margin-left: 0;
+  }
+
+  .nav {
+    grid-column: 1 / -1;
+    justify-content: center;
+  } */
+
+  .auth {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 20px 16px;
+    /* max-width: 702px; */
+  }
+
+  /* .inner {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  } */
+
+  .logo {
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  /* .auth {
+    grid-column: 1;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav {
+    grid-column: 1;
+    justify-content: center;
+    gap: 28px;
+    order: 3;
+  } */
+
+  .registerBtn {
+    padding: 12px 28px;
+  }
+
+  .userEmail {
+    max-width: 160px;
+  }
+}
+
+@media (max-width: 374px) {
+  .header {
+    padding: 20px 16px;
+    max-width: 342px;
+  }
+
+  .auth {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .loginBtn,
+  .registerBtn {
+    justify-content: center;
+    width: 100%;
+  }
 }

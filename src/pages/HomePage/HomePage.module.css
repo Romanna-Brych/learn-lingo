@@ -80,7 +80,6 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-
   background:
     repeating-linear-gradient(
         90deg,
@@ -134,4 +133,147 @@
   font-size: 14px;
   line-height: 1.28;
   flex-shrink: 0;
+}
+
+@media (max-width: 1279px) {
+  .inner {
+    grid-template-columns: 1fr 420px;
+  }
+
+  .content {
+    padding: 72px 48px;
+  }
+
+  .title {
+    font-size: 42px;
+  }
+
+  .statsBox {
+    padding: 32px 64px;
+  }
+
+  .stats {
+    gap: 48px;
+  }
+
+  .statItem {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    min-height: auto;
+    padding: 64px 48px;
+  }
+
+  .imageWrapper {
+    min-height: 420px;
+  }
+
+  .image {
+    object-position: center;
+  }
+
+  .statsBox {
+    padding: 32px 48px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 48px;
+  }
+
+  .statItem {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 12px 0 32px;
+  }
+
+  .inner {
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .content {
+    padding: 40px 24px;
+    border-radius: 20px;
+  }
+
+  .title {
+    margin-bottom: 24px;
+    font-size: 34px;
+    line-height: 1.12;
+  }
+
+  .text {
+    margin-bottom: 32px;
+    font-size: 15px;
+  }
+
+  .ctaBtn {
+    width: 100%;
+    min-width: auto;
+    height: 56px;
+  }
+
+  .imageWrapper {
+    min-height: 320px;
+    border-radius: 20px;
+  }
+
+  .statsBox {
+    padding: 28px 24px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .statItem {
+    justify-content: space-between;
+  }
+
+  .statNumber {
+    font-size: 24px;
+  }
+
+  .statLabel {
+    max-width: 140px;
+  }
+}
+
+@media (max-width: 374px) {
+  .content {
+    padding: 32px 18px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+
+  .imageWrapper {
+    min-height: 280px;
+  }
+
+  .statsBox {
+    padding: 24px 18px;
+  }
+
+  .statItem {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }

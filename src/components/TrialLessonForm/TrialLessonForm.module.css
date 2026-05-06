@@ -65,6 +65,7 @@
   align-items: center;
   gap: 8px;
   font-weight: 400;
+  line-height: 1.4;
 }
 
 .radioInput {
@@ -74,6 +75,7 @@
 }
 
 .customRadio {
+  flex-shrink: 0;
   width: 20px;
   height: 20px;
   border: 2px solid rgba(18, 20, 23, 0.2);
@@ -108,8 +110,8 @@
 }
 
 .submitBtn {
-  margin-top: 22px;
   width: 100%;
+  margin-top: 22px;
   padding: 16px;
   border-radius: 12px;
   background-color: var(--color-primary);
@@ -119,4 +121,66 @@
 .submitBtn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
+}
+
+@media (max-width: 767px) {
+  .title {
+    margin-bottom: 16px;
+    font-size: 32px;
+  }
+
+  .text {
+    margin-bottom: 18px;
+    font-size: 14px;
+  }
+
+  .teacher {
+    margin-bottom: 32px;
+  }
+
+  .legend {
+    margin-bottom: 18px;
+    font-size: 20px;
+  }
+
+  .radioGroup {
+    gap: 14px;
+  }
+
+  .radioLabel {
+    align-items: flex-start;
+    font-size: 15px;
+  }
+
+  .form {
+    gap: 16px;
+  }
+
+  .input {
+    padding: 14px 16px;
+    font-size: 15px;
+  }
+
+  .submitBtn {
+    margin-top: 18px;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 374px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .legend {
+    font-size: 18px;
+  }
+
+  .teacher {
+    align-items: flex-start;
+  }
+
+  .input {
+    padding: 13px 14px;
+  }
 }
